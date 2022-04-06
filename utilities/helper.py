@@ -112,10 +112,15 @@ def get_all_frame_numbers(dataset_folder,cam_ids):
 
 def get_all_frame_numbers_via_videos(dataset_folder,cam_ids):
     '''
-    Because the coord csv files only contain frame nubmers with people visible, the images have to be used to
-    find all frame numbers.
-    :param dataset_folder:
-    :return:
+    Because the coord csv files only contain frame numbers with people visible,
+    the all images have to be used to find total frame numbers.
+
+    Args:
+        dataset_folder (string)
+        cam_ids (list)
+
+    Returns:
+        frame_nos_cam (list)
     '''
 
     #Any cam can be used

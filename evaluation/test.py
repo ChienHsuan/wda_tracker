@@ -363,7 +363,6 @@ def splitted_multi_cam_evaluation(dataset_folder, track_results_folder, working_
 
 
 if __name__ == "__main__":
-
     '''
     result = Multicam_evaluation(dataset_folder="/media/philipp/philippkoehl_ssd/GTA_ext_short/test"
                         ,track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/clustering/multi_camera/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test"
@@ -375,11 +374,11 @@ if __name__ == "__main__":
     
     '''
 
-    splitted_multi_cam_evaluation(dataset_folder="/media/philipp/philippkoehl_ssd/GTA_ext_short/test"
-                                  , track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/clustering/config_runs/multi_cam_clustering_GTA_ext_short_non_clean/multicam_clustering_results/chunk_0/test"
-                                  , results_output_path="/media/philipp/philippkoehl_ssd/work_dirs/clustering/multi_camera_clustering_results/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test.csv"
-                                  , cam_ids=[0,1,2,3,4,5]
-                                  , working_dir="/media/philipp/philippkoehl_ssd/work_dirs"
+    splitted_multi_cam_evaluation(dataset_folder="/home/hsuan/MTA_ext_short/test"
+                                  , track_results_folder="/home/hsuan/repositories/MTMCT"
+                                  , results_output_folder="/home/hsuan/repositories/wda_tracker"
+                                  , cam_ids=[0]
+                                  , working_dir="/home/hsuan/repositories/wda_tracker"
                                   , n_parts=1
                                   )
 
@@ -394,7 +393,3 @@ if __name__ == "__main__":
                         , n_parts=10
                         )
     '''
-
-
-
-
