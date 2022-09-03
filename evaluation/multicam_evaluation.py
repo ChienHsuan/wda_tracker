@@ -351,7 +351,7 @@ def splitted_multi_cam_evaluation(dataset_folder, track_results_folder, working_
     mean_and_std_result = calculate_multi_cam_mean_and_std(chunk_evaluation_results)
 
 
-    os.makedirs(results_output_folder,exist_ok=True)
+    os.makedirs(results_output_folder, exist_ok=True)
 
     print(mean_and_std_result.to_string())
 
@@ -363,7 +363,6 @@ def splitted_multi_cam_evaluation(dataset_folder, track_results_folder, working_
 
 
 if __name__ == "__main__":
-
     '''
     result = Multicam_evaluation(dataset_folder="/media/philipp/philippkoehl_ssd/GTA_ext_short/test"
                         ,track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/clustering/multi_camera/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test"
@@ -372,9 +371,8 @@ if __name__ == "__main__":
                         ,motmetrics_distance=Motmetrics_distance.iou_matrix).evaluate()
 
     print(result["strsummary"])
-    
     '''
-
+    '''
     splitted_multi_cam_evaluation(dataset_folder="/media/philipp/philippkoehl_ssd/GTA_ext_short/test"
                                   , track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/clustering/config_runs/multi_cam_clustering_GTA_ext_short_non_clean/multicam_clustering_results/chunk_0/test"
                                   , results_output_path="/media/philipp/philippkoehl_ssd/work_dirs/clustering/multi_camera_clustering_results/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test.csv"
@@ -382,7 +380,7 @@ if __name__ == "__main__":
                                   , working_dir="/media/philipp/philippkoehl_ssd/work_dirs"
                                   , n_parts=1
                                   )
-
+    '''
     '''
     splitted_multi_cam_evaluation(dataset_folder="/net/merkur/storage/deeplearning/users/koehl/gta/GTA_Dataset_22.07.2019/test"
                         ,
@@ -395,6 +393,10 @@ if __name__ == "__main__":
                         )
     '''
 
-
-
-
+    # splitted_multi_cam_evaluation(dataset_folder="/media/lab314/HDD/MTA/MTA_ext_short/test/",
+    #                               track_results_folder="/home/lab314/Hsuan/multi_camera_multi_target_tracking/multi_cam_logs/test/mtmct/",
+    #                               results_output_folder="/home/lab314/Hsuan/wda_tracker/logs/test/mtmct/",
+    #                               cam_ids=[0, 1, 4],
+    #                               working_dir="/home/lab314/Hsuan/wda_tracker/",
+    #                               n_parts=1
+    #                               )

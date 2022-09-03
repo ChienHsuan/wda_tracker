@@ -8,9 +8,9 @@ EVAL_RESULTS_DIR=/home/lab314/Hsuan/wda_tracker/logs/
 PYTHONPATH=$PYTHONPATH:`pwd`
 PYTHONPATH=$PYTHONPATH:evaluation/py_motmetrics/
 export PYTHONPATH
-python multi_cam_evaluation.py \
+python single_cam_evaluation.py \
     --test_data_dir ${TEST_DATA_DIR} \
     --tracking_results_dir ${TRACKING_RESULTS_DIR} \
     --working_dir ${WORKING_DIR} \
-    --cam_ids 0 1 4 \
+    --cam_ids 0 1 2 3 4 5 \
     --eval_results_dir ${EVAL_RESULTS_DIR}

@@ -235,7 +235,7 @@ def evaluate_one_cam_task(ground_truth,track_results,working_dir,cam_id):
 
     return result_summary
 
-def eval_single_cam_multiple_cams(dataset_base, track_results_folder, working_dir, cam_ids, results_csv_ouput_path=None):
+def eval_single_cam_multiple_cams(dataset_base, track_results_folder, working_dir, cam_ids, results_output_folder):
 
     def combine_results_to_dataframe(results):
         results_dataframe = pd.DataFrame()
@@ -278,8 +278,10 @@ def eval_single_cam_multiple_cams(dataset_base, track_results_folder, working_di
 
     results_dataframe = combine_results_to_dataframe(eval_results)
 
-    if results_csv_ouput_path is not None:
-        results_dataframe.to_csv(results_csv_ouput_path,index=False)
+    os.makedirs(results_output_folder, exist_ok=True)
+
+    results_dataframe.to_csv(os.path.join(results_output_folder, 'single_camera_results.csv'),
+                             index=False)
 
     return results_dataframe
 
@@ -377,41 +379,7 @@ def splitted_single_cam_evaluation(dataset_folder, track_results_folder, working
                                     ,index=False)
 
 
-if __name__ == "__main__":
-
-
-    '''
-    evaluate_multiple_files(dataset_base="/home/philipp/Downloads/Recording_12.07.2019"
-                            ,track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/clustering/single_camera_refinement"
-                            ,working_dir="/media/philipp/philippkoehl_ssd/work_dirs"
-                            ,cam_ids=[5])
-
-    '''
-
-
-    eval_single_cam_multiple_cams(dataset_base="/media/philipp/philippkoehl_ssd/GTA_ext_short/test"
-                                  ,
-                                  track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/config_runs/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test"
-                                  , working_dir="/media/philipp/philippkoehl_ssd/work_dirs"
-                                  , cam_ids=[0]
-                                  , results_csv_ouput_path="/media/philipp/philippkoehl_ssd/work_dirs/clustering/single_camera_clustering_results/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test/single_camera_clustering_results.csv")
-
-
-
-
-    '''
-    evaluate_multiple_files(dataset_base="/net/merkur/storage/deeplearning/users/koehl/gta/GTA_Dataset_22.07.2019/test"
-                            , track_results_folder="/home/koehlp/Downloads/work_dirs/config_runs/faster_rcnn_r50_gta_trained_strong_reid_Gta2207_iosb"
-                            , working_dir="/home/koehlp/Downloads/work_dirs"
-                            , cam_ids=list(range(6))
-                            ,results_csv_ouput_path="/home/koehlp/Downloads/work_dirs/clustering/single_camera_clustering_results/faster_rcnn_r50_gta_trained_strong_reid_Gta2207_iosb/results.csv")
-                            
-    '''
-
-
-
 '''
-
 if __name__ == "__main__":
 
 
@@ -430,10 +398,34 @@ if __name__ == "__main__":
     with open('/home/koehlp/Downloads/work_dirs/config_runs/faster_rcnn_r50_fpn_1x_strong_reid_gta2207_iosb/evaluation_result.txt', 'w') as f:
         print(result,file=f)
         print('Evaluation took {:.3f} ms'.format((end_time - start_time) * 1000.0),file=f)
-
-
-
 '''
 
+if __name__ == "__main__":
+    '''
+    evaluate_multiple_files(dataset_base="/home/philipp/Downloads/Recording_12.07.2019"
+                            ,track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/clustering/single_camera_refinement"
+                            ,working_dir="/media/philipp/philippkoehl_ssd/work_dirs"
+                            ,cam_ids=[5])
+    '''
+    '''
+    evaluate_multiple_files(dataset_base="/net/merkur/storage/deeplearning/users/koehl/gta/GTA_Dataset_22.07.2019/test"
+                            , track_results_folder="/home/koehlp/Downloads/work_dirs/config_runs/faster_rcnn_r50_gta_trained_strong_reid_Gta2207_iosb"
+                            , working_dir="/home/koehlp/Downloads/work_dirs"
+                            , cam_ids=list(range(6))
+                            ,results_csv_ouput_path="/home/koehlp/Downloads/work_dirs/clustering/single_camera_clustering_results/faster_rcnn_r50_gta_trained_strong_reid_Gta2207_iosb/results.csv")
+    '''
+    '''
+    eval_single_cam_multiple_cams(dataset_base="/media/philipp/philippkoehl_ssd/GTA_ext_short/test"
+                                  ,
+                                  track_results_folder="/media/philipp/philippkoehl_ssd/work_dirs/config_runs/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test"
+                                  , working_dir="/media/philipp/philippkoehl_ssd/work_dirs"
+                                  , cam_ids=[0]
+                                  , results_csv_ouput_path="/media/philipp/philippkoehl_ssd/work_dirs/clustering/single_camera_clustering_results/faster_rcnn_r50_gta_trained_strong_reid_GtaExtShort_test/single_camera_clustering_results.csv")
+    '''
 
-
+    # eval_single_cam_multiple_cams(dataset_base="/home/lab314/MTA_ext_short/test/",
+    #                               track_results_folder="/home/lab314/Hsuan/multi_camera_multi_target_tracking/test_logs/mtmct/",
+    #                               working_dir="/home/lab314/Hsuan/wda_tracker/",
+    #                               cam_ids=[4],
+    #                               results_csv_ouput_path="/home/lab314/Hsuan/wda_tracker/logs/test/mtmct/single_camera_results.csv"
+    #                               )
