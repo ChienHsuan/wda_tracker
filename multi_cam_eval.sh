@@ -1,9 +1,9 @@
 #!/bin/bash
 
-TEST_DATA_DIR=/home/lab314/MTA_ext_short/test/
-TRACKING_RESULTS_DIR=/home/lab314/Hsuan/multi_camera_multi_target_tracking/logs/
-WORKING_DIR=/home/lab314/Hsuan/wda_tracker/
-EVAL_RESULTS_DIR=/home/lab314/Hsuan/wda_tracker/logs/
+TEST_DATA_DIR="/USER-DEFINED-PATH/MTA_ext_short/test/"
+TRACKING_RESULTS_DIR="/USER-DEFINED-PATH/MCDPT/logs/"
+WORKING_DIR="/USER-DEFINED-PATH/wda_tracker/"
+EVAL_RESULTS_DIR="/USER-DEFINED-PATH/wda_tracker/logs/"
 
 PYTHONPATH=$PYTHONPATH:`pwd`
 PYTHONPATH=$PYTHONPATH:evaluation/py_motmetrics/
